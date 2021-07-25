@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, Platform } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Platform,
+  FlatList,
+} from 'react-native';
 
 import { Button } from '../components/Button';
 import { SkillCard } from '../components/SkillCard';
@@ -23,9 +30,15 @@ export function Home() {
       />
       <Button onPress={handleAddNewSkill} />
       <Text style={[styles.title, { marginVertical: 20 }]}>My Skills</Text>
-      {mySkills.map((skill, index) => (
-        <SkillCard key={index} skill={skill} />
-      ))}
+      {/* o componente FlatList serve para renderizar uma lista extensa de
+      elementos, diferentemente do ScrollView, essa renderização ocorrerá por
+      demanda. */}
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        data={mySkills}
+        keyExtractor={(item, index) => index}
+        renderItem={({ item }) => <SkillCard skill={item} />}
+      />
     </View>
   );
 }
