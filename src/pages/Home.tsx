@@ -50,7 +50,7 @@ export function Home() {
       <FlatList
         showsVerticalScrollIndicator={false}
         data={mySkills}
-        keyExtractor={(item, index) => index}
+        keyExtractor={(item, index) => String(index)}
         renderItem={({ item }) => <SkillCard skill={item} />}
       />
     </View>
