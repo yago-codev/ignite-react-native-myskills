@@ -1,5 +1,9 @@
 #import "AppDelegate.h"
-
+// ADD THIS
+#if RCT_DEV
+#import <React/RCTDevLoadingView.h>
+#endif
+// TILL HERE
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -32,6 +36,10 @@ static void InitializeFlipper(UIApplication *application) {
 #endif
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+  // THIS CONDITION
+  #if RCT_DEV
+    [bridge moduleForClass:[RCTDevLoadingView class]];
+  #endif
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"myskills"
                                             initialProperties:nil];
