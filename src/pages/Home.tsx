@@ -53,7 +53,7 @@ export function Home() {
         placeholderTextColor="#c3c3c3"
         onChangeText={setNewSkill}
       />
-      <Button onPress={handleAddNewSkill} />
+      <Button onPress={handleAddNewSkill} title="Add" />
       <Text style={[styles.title, { marginVertical: 20 }]}>My Skills</Text>
       {/* o componente FlatList serve para renderizar uma lista extensa de
       elementos, diferentemente do ScrollView, essa renderização ocorrerá por
